@@ -1,4 +1,4 @@
-<div style="text-align:center"><img src="./rendering.gif" /></div>
+<div align="center" width="100%"><img src="./rendering.gif" /></div>
 <br>
 
 # Le projet : Jour / Nuit
