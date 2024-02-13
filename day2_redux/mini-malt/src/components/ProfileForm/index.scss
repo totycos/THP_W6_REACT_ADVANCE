@@ -1,0 +1,67 @@
+.profileForm {
+  max-width: 650px;
+  text-align: center;
+  margin: auto;
+
+  button {
+    width: 340px;
+    margin: 20px;
+    height: 50px;
+  }
+}
+
+.nameFormContainer {
+  display: flex;
+  width: 100%;
+}
+
+.firstNameFormContainer {
+  width: calc(50% - 20px);
+  margin: 10px;
+
+  label {
+    display: block;
+    text-align: left;
+    padding: 5px 0px;
+    font-weight: 500;
+  }
+
+  input {
+    width: calc(100% - 10px);
+    height: 26px;
+  }
+}
+
+.lastNameFormContainer {
+  width: calc(50% - 20px);
+  margin: 10px;
+
+  label {
+    display: block;
+    text-align: left;
+    padding: 5px 0px;
+    font-weight: 500;
+  }
+
+  input {
+    width: calc(100% - 10px);
+    height: 26px;
+  }
+}
+
+.skillsFormContainer {
+  width: calc(100% - 20px);
+  margin: 10px;
+
+  label {
+    display: block;
+    text-align: left;
+    padding: 5px 0px;
+    font-weight: 500;
+  }
+
+  input {
+    width: calc(100% - 10px);
+    height: 26px;
+  }
+}
