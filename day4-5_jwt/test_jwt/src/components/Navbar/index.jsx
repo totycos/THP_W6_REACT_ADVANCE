@@ -12,7 +12,6 @@ const Navbar = () => {
     if (auth) {
       Cookies.remove("token");
       updateAuth();
-      console.log(auth);
       navigate(`/`);
     }
   };
