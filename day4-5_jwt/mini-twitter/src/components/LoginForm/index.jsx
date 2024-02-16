@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import shmeeterApi from "../../services/shmeeterApi";
+import authApi from "../../services/authApi";
 import { useSelector, useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 
 const LoginForm = () => {
-  const { response, error, loginFetch } = shmeeterApi();
+  const { response, error, loginFetch } = authApi();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const isLogged = useSelector((state) => state.auth.isLogged);

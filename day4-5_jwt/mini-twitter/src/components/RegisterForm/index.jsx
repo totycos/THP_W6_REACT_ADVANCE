@@ -1,11 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import shmeeterApi from "../../services/shmeeterApi";
+import authApi from "../../services/authApi";
 import Cookies from "js-cookie";
 import { useSelector, useDispatch } from "react-redux";
 
 const RegisterForm = () => {
-  const { response, error, registerFetch } = shmeeterApi();
+  const { response, error, registerFetch } = authApi();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

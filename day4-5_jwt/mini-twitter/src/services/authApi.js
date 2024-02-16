@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const shmeeterApi = () => {
+const authApi = () => {
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
 
@@ -64,4 +64,4 @@ const shmeeterApi = () => {
     return { response, error, registerFetch, loginFetch }
 };
 
-export default shmeeterApi
+export default authApi

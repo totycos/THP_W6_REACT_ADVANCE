@@ -1,11 +1,11 @@
-import Profile from "../../components/Profile"
+import ProfileForm from "../../components/ProfileForm";
 const ProfilePage = () => {
-    return (
-        <>
-            <h1>Profile</h1>
-            <Profile />
-        </>
-    )
-}
+  return (
+    <>
+      <h1>Profile</h1>
+      <ProfileForm />
+    </>
+  );
+};
 
-export default ProfilePage
+export default ProfilePage;
