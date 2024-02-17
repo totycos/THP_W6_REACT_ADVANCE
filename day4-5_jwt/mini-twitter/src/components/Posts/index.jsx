@@ -34,12 +34,14 @@ const Posts = () => {
 
   useEffect(() => {
     if (response && response.id) {
+      console.log("user response:", response);
       setUserId(response.id);
     }
     error && console.log(error);
   }, [response, error]);
 
   useEffect(() => {
+    console.log(postResponse);
     postResponse && setPostData(postResponse);
     postError && console.log(postError);
   }, [postResponse, postError]);
@@ -84,12 +86,14 @@ const Posts = () => {
           Array.isArray(postData.data) &&
           postData.data.map((post) => (
             <div className="singlePost" key={post.id}>
-              <div
-                className="singlePost__remove"
-                onClick={() => handleRemovePost(post.id)}
-              >
-                <img src={remove} alt="remove post" />
-              </div>
+              {userId === post.attributes.user.data.id && (
+                <div
+                  className="singlePost__remove"
+                  onClick={() => handleRemovePost(post.id)}
+                >
+                  <img src={remove} alt="remove post" />
+                </div>
+              )}
               <Link
                 className="singlePost__author"
                 to={`/user/${post.attributes.users_permissions_user.data.attributes.username}`}

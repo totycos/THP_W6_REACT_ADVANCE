@@ -71,6 +71,12 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "inversedBy": "users_likes"
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "user"
     }
   }
 }
