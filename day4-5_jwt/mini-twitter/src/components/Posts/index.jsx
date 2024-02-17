@@ -94,21 +94,33 @@ const Posts = () => {
                   <img src={remove} alt="remove post" />
                 </div>
               )}
-              <Link
-                className="singlePost__author"
-                to={`/user/${post.attributes.users_permissions_user.data.attributes.username}`}
-                state={{
-                  description:
+              <p>
+                <Link
+                  className="singlePost__author"
+                  to={`/user/${post.attributes.users_permissions_user.data.attributes.username}`}
+                  state={{
+                    description:
+                      post.attributes.users_permissions_user.data.attributes
+                        .description,
+                    authorId: post.attributes.users_permissions_user.data.id,
+                  }}
+                >
+                  {
                     post.attributes.users_permissions_user.data.attributes
-                      .description,
-                  authorId: post.attributes.users_permissions_user.data.id,
-                }}
-              >
-                {
-                  post.attributes.users_permissions_user.data.attributes
-                    .username
-                }
-              </Link>
+                      .username
+                  }
+                </Link>
+                <span className="singlePost__time">
+                  {" "}
+                  ·{" "}
+                  {(
+                    Math.abs(new Date() - new Date(post.attributes.createdAt)) /
+                    36e5
+                  ).toFixed(0)}
+                  h
+                </span>
+              </p>
+
               <p className="singlePost__text">{post.attributes.text}</p>
             </div>
           ))}

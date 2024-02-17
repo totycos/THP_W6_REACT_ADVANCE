@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import userApi from "../../services/userApi";
 import Cookies from "js-cookie";
+import "./index.scss";
 
 const ProfileForm = () => {
   const { response, error, getUserDataFetch, updateUserDataFetch } = userApi();
@@ -38,27 +39,36 @@ const ProfileForm = () => {
   };
 
   return (
-    <form>
-      <label>Username:</label>
-      <input
-        type="username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
+    <>
+      <div className="containerTitle">
+        <h1>{username} · Profile</h1>
+      </div>
+      <form className="profileForm">
+        <input
+          className="profileForm__username"
+          type="username"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
 
-      <label>Description:</label>
-      <input
-        type="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-      />
+        <textarea
+          className="profileForm__description"
+          type="description"
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
 
-      <button type="button" onClick={handleSaveChanges}>
-        Save changes
-      </button>
-    </form>
+        <div className="profileForm__containerButton">
+          <button type="button" onClick={handleSaveChanges}>
+            Save changes
+          </button>
+        </div>
+      </form>
+    </>
   );
 };
 

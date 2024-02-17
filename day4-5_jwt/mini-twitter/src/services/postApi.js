@@ -54,10 +54,10 @@ const postApi = () => {
         }
     }
 
-    // GET AUTHOR S POST
+    // GET AUTHOR S POSTS
     const getAuthorPostsFetch = async (token, USER_ID) => {
         try {
-            const response = await fetch(`http://localhost:1337/api/posts?user.id=${USER_ID}`, {
+            const response = await fetch(`http://localhost:1337/api/posts?filters[user][id][$eq]=${USER_ID}`, {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
