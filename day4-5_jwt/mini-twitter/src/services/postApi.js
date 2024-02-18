@@ -33,7 +33,6 @@ const postApi = () => {
                 text: text,
                 user: USER_ID
             };
-            console.log('data dans fetch:', data)
             const response = await fetch(`http://localhost:1337/api/posts`, {
                 method: 'post',
                 headers: {
@@ -78,7 +77,6 @@ const postApi = () => {
 
     // DELETE POST
     const deletePostFetch = async (token, POST_ID) => {
-        console.log(token, POST_ID)
         try {
             const response = await fetch(`http://localhost:1337/api/posts/${POST_ID}`, {
                 method: 'delete',
@@ -99,8 +97,36 @@ const postApi = () => {
         }
     }
 
+    // LIKE
+    const likePostFetch = async (token, POST_ID, like, users_likes) => {
+        try {
+            const data = {
+                like: like,
+                users_likes: users_likes
+            };
+            console.log('data dans fetch:', data)
+            const response = await fetch(`http://localhost:1337/api/posts/${POST_ID}`, {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(data)
+            });
 
-    return { postResponse, postError, getPostsFetch, createPostFetch, getAuthorPostsFetch, deletePostFetch }
+            if (!response.ok) {
+                throw new Error('Like failed. Please check your credentials and try again.');
+            }
+
+            const postData = await response.json();
+            setPostResponse(postData)
+        } catch (error) {
+            setPostError(`Error during like post: ${error.message}`);
+        }
+    }
+
+
+    return { postResponse, postError, getPostsFetch, createPostFetch, getAuthorPostsFetch, deletePostFetch, likePostFetch }
 };
 
 export default postApi

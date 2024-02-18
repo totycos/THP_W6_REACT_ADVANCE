@@ -5,6 +5,7 @@
   z-index: 3;
   background-color: black;
   display: flex;
+  margin-left: -105px;
 }
 
 .connectionLogoContainer {
@@ -15,7 +16,7 @@
 }
 
 .linksContainer {
-  margin: 60px;
+  margin: 40px;
 
   &__registerContainer {
     h1 {

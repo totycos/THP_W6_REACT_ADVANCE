@@ -64,4 +64,15 @@
   &__time {
     color: rgb(113, 118, 123);
   }
+
+  &__like {
+    color: rgb(113, 118, 123);
+
+    svg {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      vertical-align: sub;
+    }
+  }
 }
