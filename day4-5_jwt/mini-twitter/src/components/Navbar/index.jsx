@@ -26,29 +26,22 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
-      <Link to="/">
-        <img className="navbar__logo" src={logo} alt="logo" />
-      </Link>
-      <Link to="/">
-        <img className="navbar__home" src={home} alt="home" />
-      </Link>
-      {isLogged ? (
-        <>
-          <Link to="/profile">
-            <img className="navbar__profile" src={profile} alt="profile" />
-          </Link>
-          <div onClick={handleLogout}>
-            <img className="navbar__logout" src={logout} alt="" />
-          </div>
-        </>
-      ) : (
-        <div>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
+    isLogged && (
+      <div className="navbar">
+        <Link to="/">
+          <img className="navbar__logo" src={logo} alt="logo" />
+        </Link>
+        <Link to="/">
+          <img className="navbar__home" src={home} alt="home" />
+        </Link>
+        <Link to="/profile">
+          <img className="navbar__profile" src={profile} alt="profile" />
+        </Link>
+        <div onClick={handleLogout}>
+          <img className="navbar__logout" src={logout} alt="" />
         </div>
-      )}
-    </div>
+      </div>
+    )
   );
 };
 
