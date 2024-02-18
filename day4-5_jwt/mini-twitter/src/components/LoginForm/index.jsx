@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authApi from "../../services/authApi";
 import { useSelector, useDispatch } from "react-redux";
 import Cookies from "js-cookie";
+import "./index.scss";
 
 const LoginForm = () => {
   const { response, error, loginFetch } = authApi();
@@ -32,27 +33,39 @@ const LoginForm = () => {
   }, [response, error]);
 
   return (
-    <form>
-      <label>Email:</label>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
+    <div className="loginFormContainer">
+      <form className="loginForm">
+        <h1>Log in to Y</h1>
+        <input
+          className="loginForm__email"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-      <label>Password:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
+        <input
+          className="loginForm__password"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-      <button type="button" onClick={handleLogin}>
-        Login
-      </button>
-    </form>
+        <button type="button" onClick={handleLogin}>
+          Login
+        </button>
+
+        <p className="loginForm__register">
+          You don't have an account ?{" "}
+          <Link className="loginForm__registerLink" to="/register">
+            Register
+          </Link>
+        </p>
+      </form>
+    </div>
   );
 };
 

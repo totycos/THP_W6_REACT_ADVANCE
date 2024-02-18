@@ -7,7 +7,7 @@ const postApi = () => {
     // GET POST
     const getPostsFetch = async (token) => {
         try {
-            const response = await fetch('http://localhost:1337/api/posts?populate=*', {
+            const response = await fetch('http://localhost:1337/api/posts?sort=createdAt:desc&populate=*', {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ const postApi = () => {
     // GET AUTHOR S POSTS
     const getAuthorPostsFetch = async (token, USER_ID) => {
         try {
-            const response = await fetch(`http://localhost:1337/api/posts?filters[user][id][$eq]=${USER_ID}`, {
+            const response = await fetch(`http://localhost:1337/api/posts?sort=createdAt:desc&filters[user][id][$eq]=${USER_ID}`, {
                 method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
